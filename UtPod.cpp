@@ -23,23 +23,51 @@ UtPod::UtPod(int size){
 
 
 int UtPod::addSong(Song const &s){
+  if (UtPod::getRemainingMemory() <= memSize){
+    SongNode *temp = new SongNode;
+    temp->next = songs;
+    songs = temp;
+    temp->s.setTitle(s.getTitle());
+    temp->s.setArtist(s.getArtist());
+    temp->s.setSize(s.getSize());
+    return 0;
+  }
+  else{
+    return 1;
+  }
 
-        SongNode *temp = new SongNode;
-        temp->next = songs;
-        songs = temp;
-        temp->s.setTitle(s.getTitle());
-        temp->s.setArtist(s.getArtist());
-        temp->s.setSize(s.getSize()); 
-        return 0;
-    
+
 
 }
 
 
 
 int UtPod::removeSong(Song const &s){
-    return 0;
-
+    if(songs == NULL){
+      return 1;
+    }
+    else{
+      SongNode *ptr = songs;
+      if ((ptr->s.getTitle() == s.getTitle()) && (ptr->s.getArtist() == s.getArtist()) && (ptr->s.getSize() == s.getSize())){
+        SongNode *temp = songs;
+        songs = songs->next;
+        delete temp;
+        return 0;
+      }
+      else{
+        SongNode *ptr2 = songs->next;
+        while (ptr2 != NULL) {
+          if((ptr2->s.getTitle() == s.getTitle()) && (ptr2->s.getArtist() == s.getArtist()) && (ptr2->s.getSize() == s.getSize())){
+            ptr->next = ptr2->next;
+            delete ptr2;
+            return 0;
+          }
+          ptr = ptr->next;
+          ptr2 = ptr2->next;
+        }
+      }
+      return 1;
+    }
 }
 
 
@@ -67,7 +95,7 @@ void UtPod::showSongList(){
 
 
 void UtPod::sortSongList(){
-    
+
 }
 
 
