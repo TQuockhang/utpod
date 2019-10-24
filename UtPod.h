@@ -12,17 +12,17 @@ class UtPod
       static const int SUCCESS = 0;
       static const int NO_MEMORY = -1;
       static const int NOT_FOUND = -2;
-      
+
       struct SongNode
       {
          Song s;
          SongNode *next;
       };
-      
+
       SongNode *songs;  //the head pointer
-      
+
       int memSize;
-   
+
    public:
       //Default constructor
       //set the memory size to MAX_MEMORY
@@ -103,9 +103,9 @@ class UtPod
       /* FUNCTION - void clearMemory
        * clears all the songs from memory
 
-         input parms -
+         input parms - n/a
 
-         output parms -
+         output parms - n/a
       */
       void clearMemory();
 
@@ -114,9 +114,9 @@ class UtPod
        *  returns the total amount of memory in the UtPod
           o will do nothing if there are less than two songs in the current list
 
-         input parms -
+         input parms - n/a
 
-         output parms -
+         output parms - memSize
       */
 
       int getTotalMemory() {
@@ -128,16 +128,16 @@ class UtPod
       /* FUNCTION - int getRemainingMemory
        *  returns the amount of memory available for adding new songs
 
-         input parms -
+         input parms - n/a
 
-         output parms -
+         output parms - returns an int
       */
 
       int getRemainingMemory();
 
 
       ~UtPod();
- 
+
 };
 
 
