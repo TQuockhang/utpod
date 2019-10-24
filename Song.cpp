@@ -4,9 +4,6 @@
 
 using namespace std;
 
-Song::Song(){
-
-}
 Song::Song(std::string insertTitle, std::string insertArtist, int insertSize){
     title = insertTitle;
     artist = insertArtist;
@@ -15,7 +12,7 @@ Song::Song(std::string insertTitle, std::string insertArtist, int insertSize){
 }
 
 Song::~Song(){
-
+//  cout << "debug: in " << song << "right now" << endl;
 }
 
 void Song::setTitle(std::string insertTitle){
@@ -30,9 +27,35 @@ void Song::setSize(int insertSize){
 
 bool Song::operator == (Song const &rhs){
 
-  if((artist == rhs.getArtist()) && (title == rhs.getTitle()) && (size == rhs.getSize())){
-    return true;
+  return((artist == rhs.artist) && (title == rhs.title) && (size == rhs.size));
+
+
+}
+
+bool Song::operator > (Song const &rhs){
+  if(!(artist == rhs.artist)){
+
   }
-    return false;
+  else if(!(title == rhs.title)){
+
+  }
+  else if(!(size == rhs.size)){
+    return (size > rhs.size);
+  }
+  return false;
+}
+
+bool Song::operator < (Song const &rhs){
+  if(!(artist == rhs.artist)){
+
+  }
+  else if(!(title == rhs.title)){
+
+  }
+  else if(!(size == rhs.size)){
+    return (size > rhs.size);
+  }
+
+  return false;
 
 }

@@ -41,9 +41,9 @@ class UtPod
 
        precondition: s is a valid Song
 
-       input parms -
+       input parms - class
 
-       output parms -
+       output parms - n/a
       */
 
       int addSong(Song const &s);

@@ -23,6 +23,7 @@ UtPod::UtPod(int size){
 
 UtPod::~UtPod(){
 // need to free songs
+  clearMemory();
 }
 
 
@@ -39,9 +40,6 @@ int UtPod::addSong(Song const &s){
   else{
     return 1;
   }
-
-
-
 }
 
 
