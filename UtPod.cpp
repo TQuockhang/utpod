@@ -92,7 +92,7 @@ void UtPod::showSongList(){
     else{
         SongNode *ptr = songs;
         while(ptr != NULL){
-            cout << ptr->s.getTitle()<< " by " << ptr->s.getArtist() << " size of: " << ptr->s.getSize() << " mb"<< endl;
+            cout << ptr->s << endl;
             ptr = ptr->next;
         }
     }

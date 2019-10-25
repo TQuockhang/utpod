@@ -16,7 +16,7 @@ Song::Song(std::string insertTitle, std::string insertArtist, int insertSize){
 }
 
 Song::~Song(){
-//  cout << "debug: in " << song << "right now" << endl;
+//  cout << "debug: in " << Song << "right now" << endl;
 }
 
 void Song::setTitle(std::string insertTitle){
@@ -72,4 +72,9 @@ bool Song::operator < (Song const &rhs){
   }
   return false;
 
+}
+
+ostream& operator << (ostream& out, const Song &s){
+   out << s.getTitle() << " by " << s.getArtist() << " - size of " << s.getSize();
+   return out;
 }
