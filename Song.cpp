@@ -4,6 +4,10 @@
 
 using namespace std;
 
+Song::Song(){
+
+}
+
 Song::Song(std::string insertTitle, std::string insertArtist, int insertSize){
     title = insertTitle;
     artist = insertArtist;
@@ -33,10 +37,15 @@ bool Song::operator == (Song const &rhs){
 }
 
 bool Song::operator > (Song const &rhs){
+  int num;
   if(!(artist == rhs.artist)){
+    num = artist.compare(rhs.artist);
+    return(num > 0);
 
   }
   else if(!(title == rhs.title)){
+    num = title.compare(rhs.title);
+    return(num > 0);
 
   }
   else if(!(size == rhs.size)){
@@ -46,16 +55,21 @@ bool Song::operator > (Song const &rhs){
 }
 
 bool Song::operator < (Song const &rhs){
+
+  int num;
   if(!(artist == rhs.artist)){
+    num = artist.compare(rhs.artist);
+    return(num < 0);
 
   }
   else if(!(title == rhs.title)){
+    num = title.compare(rhs.title);
+    return(num < 0);
 
   }
   else if(!(size == rhs.size)){
     return (size > rhs.size);
   }
-
   return false;
 
 }

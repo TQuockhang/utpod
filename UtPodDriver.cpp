@@ -46,6 +46,10 @@ int main(int argc, char *argv[])
     cout << "result = " << result << endl;
     cout << "memory = " << t.getRemainingMemory() << endl;
 
+
+    bool compare = s1 > s2;
+    cout << "the compare test is "<< compare << endl;
+
     t.showSongList();
     t.clearMemory();
     // result = t.removeSong(s2);

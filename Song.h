@@ -11,6 +11,7 @@ private:
     int size;
 
 public:
+    Song();
     Song(std::string insertTitle, std::string insertArtist, int insertsize);
     ~Song();
 
@@ -32,6 +33,8 @@ public:
     bool operator > (Song const &rhs);
 
     bool operator < (Song const &rhs);
+
+    //ostream& operator << (ostream& out, const Song &s);
 
   };
 
