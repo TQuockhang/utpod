@@ -100,10 +100,122 @@ void UtPod::showSongList(){
 
 
 
-void UtPod::sortSongList(){
 
+void UtPod::sortSongList(){
+  if ((songs == NULL) || (songs->next == NULL)){
+    return;
+  }
+  SongNode *first = songs;
+  SongNode *second = songs->next;
+  bool again = true;
+  bool swapped = false;
+  bool didNotSwap = true;
+  while(again){
+    if(second == NULL || first == NULL){
+      first = songs;
+      second = songs->next;
+      if(swapped){
+        again = true;
+        swapped = false;
+      }
+      else{
+        again = false;
+        swapped = false;
+      }
+    }
+    cout << "first: " << first->s << endl;
+    cout << "second: " << second->s << endl;
+    bool didNotSwap = true;
+
+    if(second->s < first->s){
+      swap(first, second);
+      swapped = true;
+      didNotSwap = false;
+      SongNode* temp = first->next;
+      first = second->next;
+      second = temp;
+    }
+
+    if (didNotSwap){
+      first = first->next;
+      second = second->next;
+    }
+  }
 }
 
+void UtPod::swap(SongNode *first, SongNode *second){
+  if (songs == first){
+    SongNode *ptr = songs;
+    while(ptr->next != second){
+      ptr = ptr->next;
+    }
+    SongNode *temp = second->next;
+    songs = second;
+    ptr->next = first;
+    second->next = first->next;
+    first->next = temp;
+
+  }
+  else{
+    SongNode *ptr1 = songs;
+    SongNode *ptr2 = songs;
+    while(ptr1->next != first){
+        ptr1 = ptr1->next;
+    }
+    while (ptr2->next != second){
+      ptr2 = ptr2->next;
+    }
+    SongNode *temp = second->next;
+    ptr2->next = first;
+    ptr1->next = second;
+    second->next = first;
+    first->next = temp;
+
+  }
+  showSongList();
+}
+// void UtPod::mergeSort(SongNode *header){
+//   SongNode *first;
+//   SongNode *second;
+//   if (header == NULL || header->next == NULL){
+//     return;
+//   }
+//   split(header, &first, &second);
+//   //mergeSort(first);
+//   //mergeSort(second);
+//   //header = combine(&header, first, second);
+// }
+//
+// void UtPod::split(SongNode *header, SongNode **first, SongNode **second){
+//   SongNode *fast = header->next;
+//   SongNode *slow = header;
+//
+//   while(fast->next != NULL){
+//     fast = fast->next;
+//     if(fast->next != NULL){
+//       fast = fast->next;
+//       slow = slow->next;
+//     }
+//   }
+//   *first = header;
+//   *second = slow;
+// }
+//
+// SondNode* UtPod::combine(SongNode *header, SongNode *first, SongNode *second){
+//   if(first == NULL){
+//     return second;
+//   }
+//   if(second == NULL){
+//     return first;
+//   }
+//    if(first->s <= second->s){
+//
+//    }
+//    else if(second->s <= first->s){
+//
+//    }
+//
+//}
 
 void UtPod::clearMemory(){
   if(songs == NULL){

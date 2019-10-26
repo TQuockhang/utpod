@@ -46,12 +46,14 @@ int main(int argc, char *argv[])
     cout << "result = " << result << endl;
     cout << "memory = " << t.getRemainingMemory() << endl;
 
+    t.sortSongList();
 
-    bool compare = s1 > s2;
-    cout << "the compare test is "<< compare << endl;
+
+    // bool compare = s1 > s2;
+    // cout << "the compare test is "<< compare << endl;
 
     t.showSongList();
-    t.clearMemory();
+  //  t.clearMemory();
     // result = t.removeSong(s2);
     // cout << "delete result = " << result << endl;
     //
@@ -78,7 +80,7 @@ int main(int argc, char *argv[])
 
 
 
-    t.showSongList();
+  //  t.showSongList();
 /*
     result = t.addSong(s5);
     cout << "add result = " << result << endl;

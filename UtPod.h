@@ -22,6 +22,11 @@ class UtPod
       SongNode *songs;  //the head pointer
 
       int memSize;
+      void swap(SongNode *first, SongNode *second);
+
+      // void mergeSort(SongNode *header);
+      // void split(SongNode* header, SongNode **first, SongNode **second);
+      // void combine(SongNode *first, SongNode *second);
 
    public:
       //Default constructor
@@ -137,6 +142,11 @@ class UtPod
 
 
       ~UtPod();
+
+
+      /*
+      helper functions
+      */
 
 };
 
