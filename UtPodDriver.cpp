@@ -53,31 +53,39 @@ int main(int argc, char *argv[])
     // cout << "the compare test is "<< compare << endl;
 
     t.showSongList();
-  //  t.clearMemory();
-    // result = t.removeSong(s2);
-    // cout << "delete result = " << result << endl;
-    //
-    // t.showSongList();
-    //
-    //
-    // result = t.removeSong(s3);
-    // cout << "delete result = " << result << endl;
-    //
-    // t.showSongList();
-    //
-    // result = t.removeSong(s1);
-    // cout << "delete result = " << result << endl;
-    // t.showSongList();
-    //
-    //
-    // result = t.removeSong(s5);
-    // cout << "delete result = " << result << endl;
-    // t.showSongList();
-    //
-    //
-    // result = t.removeSong(s4);
-    // cout << "delete result = " << result << endl;
+    cout << "about to shuffle"<< endl;
+    t.shuffle();
+    t.showSongList();
+    cout << "about to shuffle"<< endl;
+    t.shuffle();
+    t.showSongList();
 
+  //  t.clearMemory();
+    result = t.removeSong(s2);
+    cout << "delete result = " << result << endl;
+
+    t.showSongList();
+
+
+    result = t.removeSong(s3);
+    cout << "delete result = " << result << endl;
+
+    t.showSongList();
+
+    result = t.removeSong(s1);
+    cout << "delete result = " << result << endl;
+    t.showSongList();
+
+
+    result = t.removeSong(s5);
+    cout << "delete result = " << result << endl;
+    t.showSongList();
+
+
+    result = t.removeSong(s4);
+    cout << "delete result = " << result << endl;
+
+    t.showSongList();
 
 
   //  t.showSongList();

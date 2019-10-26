@@ -1,13 +1,17 @@
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
+#include <ctime>
+
 #include "Song.h"
 #include "UtPod.h"
 
 using namespace std;
-
 UtPod::UtPod(){
     songs = NULL;
     memSize = MAX_MEMORY;
+    unsigned int currentTime =  (unsigned)time(0);
+    srand(currentTime);
     }
 
 
@@ -19,6 +23,8 @@ UtPod::UtPod(int size){
     else{
         memSize = size;
     }
+    unsigned int currentTime =  (unsigned)time(0);
+    srand(currentTime);
 }
 
 UtPod::~UtPod(){
@@ -52,8 +58,6 @@ int UtPod::removeSong(Song const &s){
       SongNode *ptr = songs;
       if (ptr->s == s){
         //(ptr->s.getTitle() == s.getTitle()) && (ptr->s.getArtist() == s.getArtist()) && (ptr->s.getSize() == s.getSize())
-
-
         SongNode *temp = songs;
         songs = songs->next;
         delete temp;
@@ -79,8 +83,32 @@ int UtPod::removeSong(Song const &s){
 
 
 void UtPod::shuffle(){
+  if(songs == NULL){
+    return;
+  }
+  else{
+    int size = 0;
+    SongNode *ptr = songs;
+    while(ptr != NULL){
+      size++;
+      ptr = ptr->next;
+    }
+    for(int i = 0; i <= size; i++){
+     swap(randomNode(size), randomNode(size));
+    }
+  }
 
 }
+UtPod::SongNode* UtPod::randomNode(int size){
+  SongNode *ptr = songs;
+  int count = rand()%size;
+  while(count != 0){
+    ptr = ptr->next;
+    count--;
+  }
+  return ptr;
+}
+
 
 
 
@@ -111,14 +139,13 @@ void UtPod::sortSongList(){
   while(swapped){
     swapped = false;
     ptr = songs;
-    while(ptr->next != end){
+    while(ptr->next != NULL){
       if(ptr->next->s < ptr->s){
         swap(ptr, ptr->next);
         swapped = true;
       }
       ptr = ptr->next;
     }
-    end = ptr;
   }
 }
 
@@ -126,7 +153,6 @@ void UtPod::swap(SongNode *first, SongNode *second){
   Song temp = first->s;
   first->s = second->s;
   second->s = temp;
-  showSongList();
 }
 // void UtPod::mergeSort(SongNode *header){
 //   SongNode *first;

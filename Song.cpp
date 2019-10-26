@@ -8,7 +8,7 @@ Song::Song(){
 
 }
 
-Song::Song(std::string insertTitle, std::string insertArtist, int insertSize){
+Song::Song(std::string insertArtist, std::string insertTitle, int insertSize){
     title = insertTitle;
     artist = insertArtist;
     size = insertSize;

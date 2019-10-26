@@ -4,6 +4,7 @@
 #define UTPOD_H
 #include "Song.h"
 
+
 //UtPod class declaration
 class UtPod
 {
@@ -23,6 +24,7 @@ class UtPod
 
       int memSize;
       void swap(SongNode *first, SongNode *second);
+      SongNode* randomNode(int size);
 
       // void mergeSort(SongNode *header);
       // void split(SongNode* header, SongNode **first, SongNode **second);

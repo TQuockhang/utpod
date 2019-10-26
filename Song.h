@@ -6,13 +6,13 @@
 class Song
 {
 private:
-    std::string title;
     std::string artist;
+    std::string title;
     int size;
 
 public:
     Song();
-    Song(std::string insertTitle, std::string insertArtist, int insertsize);
+    Song(std::string insertArtist, std::string insertTitle, int insertsize);
     ~Song();
 
     void setTitle(std::string);
