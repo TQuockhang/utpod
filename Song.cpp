@@ -74,6 +74,14 @@ bool Song::operator < (Song const &rhs){
 
 }
 
+bool Song::operator <= (Song const &rhs){
+  return (*this < rhs) || (*this == rhs);
+}
+
+bool Song::operator >= (Song const &rhs){
+  return (*this > rhs) || (*this == rhs);
+}
+
 ostream& operator << (ostream& out, const Song &s){
    out << s.getTitle() << " by " << s.getArtist() << " - size of " << s.getSize();
    return out;

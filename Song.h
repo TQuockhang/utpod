@@ -33,6 +33,11 @@ public:
     bool operator > (Song const &rhs);
 
     bool operator < (Song const &rhs);
+
+    bool operator <= (Song const &rhs);
+
+    bool operator >= (Song const &rhs);
+
   };
 std::ostream& operator << (std::ostream& out, const Song &s);
 
