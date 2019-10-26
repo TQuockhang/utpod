@@ -105,73 +105,27 @@ void UtPod::sortSongList(){
   if ((songs == NULL) || (songs->next == NULL)){
     return;
   }
-  SongNode *first = songs;
-  SongNode *second = songs->next;
-  bool again = true;
-  bool swapped = false;
-  bool didNotSwap = true;
-  while(again){
-    if(second == NULL || first == NULL){
-      first = songs;
-      second = songs->next;
-      if(swapped){
-        again = true;
-        swapped = false;
+  SongNode *ptr;
+  SongNode *end = NULL;
+  bool swapped = true;
+  while(swapped){
+    swapped = false;
+    ptr = songs;
+    while(ptr->next != end){
+      if(ptr->next->s < ptr->s){
+        swap(ptr, ptr->next);
+        swapped = true;
       }
-      else{
-        again = false;
-        swapped = false;
-      }
+      ptr = ptr->next;
     }
-    cout << "first: " << first->s << endl;
-    cout << "second: " << second->s << endl;
-    bool didNotSwap = true;
-
-    if(second->s < first->s){
-      swap(first, second);
-      swapped = true;
-      didNotSwap = false;
-      SongNode* temp = first->next;
-      first = second->next;
-      second = temp;
-    }
-
-    if (didNotSwap){
-      first = first->next;
-      second = second->next;
-    }
+    end = ptr;
   }
 }
 
 void UtPod::swap(SongNode *first, SongNode *second){
-  if (songs == first){
-    SongNode *ptr = songs;
-    while(ptr->next != second){
-      ptr = ptr->next;
-    }
-    SongNode *temp = second->next;
-    songs = second;
-    ptr->next = first;
-    second->next = first->next;
-    first->next = temp;
-
-  }
-  else{
-    SongNode *ptr1 = songs;
-    SongNode *ptr2 = songs;
-    while(ptr1->next != first){
-        ptr1 = ptr1->next;
-    }
-    while (ptr2->next != second){
-      ptr2 = ptr2->next;
-    }
-    SongNode *temp = second->next;
-    ptr2->next = first;
-    ptr1->next = second;
-    second->next = first;
-    first->next = temp;
-
-  }
+  Song temp = first->s;
+  first->s = second->s;
+  second->s = temp;
   showSongList();
 }
 // void UtPod::mergeSort(SongNode *header){
