@@ -34,7 +34,7 @@ UtPod::~UtPod(){
 
 
 int UtPod::addSong(Song const &s){
-  if (UtPod::getRemainingMemory() <= memSize){
+  if (UtPod::getRemainingMemory() >= s.getSize()){
     SongNode *temp = new SongNode;
     temp->next = songs;
     songs = temp;
@@ -99,6 +99,7 @@ void UtPod::shuffle(){
   }
 
 }
+
 UtPod::SongNode* UtPod::randomNode(int size){
   SongNode *ptr = songs;
   int count = rand()%size;
@@ -134,7 +135,6 @@ void UtPod::sortSongList(){
     return;
   }
   SongNode *ptr;
-  SongNode *end = NULL;
   bool swapped = true;
   while(swapped){
     swapped = false;
@@ -205,8 +205,8 @@ void UtPod::clearMemory(){
     SongNode *ptr = songs;
     while(ptr != NULL){
       SongNode *temp = ptr;
-      delete temp;
       ptr = ptr->next;
+      delete temp;
     }
     songs = ptr;
   }

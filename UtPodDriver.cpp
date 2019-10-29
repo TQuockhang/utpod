@@ -19,7 +19,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     UtPod t;
-
+//test adding
+  cout << "testing adding" << endl;
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
     cout << "result = " << result << endl;
@@ -46,21 +47,22 @@ int main(int argc, char *argv[])
     cout << "result = " << result << endl;
     cout << "memory = " << t.getRemainingMemory() << endl;
 
-    t.sortSongList();
+    cout << "should fail here" << endl;
 
-
-    // bool compare = s1 > s2;
-    // cout << "the compare test is "<< compare << endl;
-
-    t.showSongList();
-    cout << "about to shuffle"<< endl;
-    t.shuffle();
-    t.showSongList();
-    cout << "about to shuffle"<< endl;
-    t.shuffle();
+    Song s6("Beatles", "Hey Jude5", 512);
+    result = t.addSong(s6);
+    cout << "result = " << result << endl;
+    cout << "memory = " << t.getRemainingMemory() << endl;
+    Song s7("Beatles", "Hey Jude5", 700);
+    result = t.addSong(s7);
+    cout << "result = " << result << endl;
+    cout << "memory = " << t.getRemainingMemory() << endl;
     t.showSongList();
 
-  //  t.clearMemory();
+
+  cout << "===================================" << endl;
+
+  cout << "testing remove" << endl;
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
 
@@ -86,15 +88,91 @@ int main(int argc, char *argv[])
     cout << "delete result = " << result << endl;
 
     t.showSongList();
+    cout << "memory = " << t.getRemainingMemory() << endl;
+
+    cout << "should fail here" << endl;
+
+        result = t.removeSong(s5);
+        cout << "delete result = " << result << endl;
+        t.showSongList();
 
 
-  //  t.showSongList();
-/*
-    result = t.addSong(s5);
-    cout << "add result = " << result << endl;
+        result = t.removeSong(s4);
+        cout << "delete result = " << result << endl;
 
+        t.showSongList();
+        cout << "memory = " << t.getRemainingMemory() << endl;
+
+
+    cout << "===================================" << endl;
+
+    cout << "testing clear memory" << endl;
+      result = t.addSong(s1);
+      cout << "result = " << result << endl;
+
+      t.showSongList();
+
+      result = t.addSong(s2);
+      cout << "result = " << result << endl;
+
+      result = t.addSong(s3);
+      cout << "result = " << result << endl;
+
+      result = t.addSong(s4);
+      cout << "result = " << result << endl;
+
+      result = t.addSong(s5);
+      cout << "result = " << result << endl;
+      cout << "memory = " << t.getRemainingMemory() << endl;
+
+      cout <<"after clear" << endl;
+      // t.clearMemory();
+      // t.showSongList();
+
+      // t.clearMemory();
+      // t.showSongList();
+
+      cout << "memory = " << t.getRemainingMemory() << endl;
+
+    cout << "===================================" << endl;
+
+
+    cout << "testing sorting" << endl;
+    cout << "1 element sort" << endl;
+
+    t.addSong(s1);
+    t.sortSongList();
+    t.showSongList();
+
+    cout << "2 element sort" << endl;
+    t.addSong(s2);
+    t.sortSongList();
+    t.showSongList();
+
+    cout << "multiple element sort" << endl;
+    t.addSong(s4);
+    t.addSong(s3);
+    t.addSong(s5);
+    t.sortSongList();
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
-    */
+
+
+    cout << "===================================" << endl;
+    cout << "testing shuffle" << endl;
+    t.showSongList();
+
+    cout << "first shuffle"<< endl;
+    t.shuffle();
+    t.showSongList();
+    cout << "second shuffle"<< endl;
+    t.shuffle();
+    t.showSongList();
+    cout << "third shuffle"<< endl;
+    t.shuffle();
+    t.showSongList();
+    cout << "===================================" << endl;
+
+
 
 }

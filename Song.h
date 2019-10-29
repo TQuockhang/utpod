@@ -13,7 +13,6 @@ private:
 public:
     Song();
     Song(std::string insertArtist, std::string insertTitle, int insertsize);
-    ~Song();
 
     void setTitle(std::string);
     void setArtist(std::string);

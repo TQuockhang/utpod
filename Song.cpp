@@ -15,10 +15,6 @@ Song::Song(std::string insertArtist, std::string insertTitle, int insertSize){
 
 }
 
-Song::~Song(){
-//  cout << "debug: in " << Song << "right now" << endl;
-}
-
 void Song::setTitle(std::string insertTitle){
     title = insertTitle;
 }
