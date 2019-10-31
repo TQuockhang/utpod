@@ -93,8 +93,10 @@ void UtPod::shuffle(){
       size++;
       ptr = ptr->next;
     }
-    for(int i = 0; i <= size; i++){
-     swap(randomNode(size), randomNode(size));
+    ptr = songs;
+    for(int i = 0; i <= size && ptr != NULL; i++){
+     ptr->s.swap(randomNode(size)->s);
+     ptr = ptr->next;
     }
   }
 
@@ -128,7 +130,8 @@ void UtPod::showSongList(){
 }
 
 
-
+// bubble sort
+//referenced https://www.geeksforgeeks.org/c-program-bubble-sort-linked-list/
 
 void UtPod::sortSongList(){
   if ((songs == NULL) || (songs->next == NULL)){
@@ -141,7 +144,8 @@ void UtPod::sortSongList(){
     ptr = songs;
     while(ptr->next != NULL){
       if(ptr->next->s < ptr->s){
-        swap(ptr, ptr->next);
+        //swap(ptr, ptr->next);
+        ptr->s.swap(ptr->next->s);
         swapped = true;
       }
       ptr = ptr->next;
@@ -149,54 +153,11 @@ void UtPod::sortSongList(){
   }
 }
 
-void UtPod::swap(SongNode *first, SongNode *second){
-  Song temp = first->s;
-  first->s = second->s;
-  second->s = temp;
-}
-// void UtPod::mergeSort(SongNode *header){
-//   SongNode *first;
-//   SongNode *second;
-//   if (header == NULL || header->next == NULL){
-//     return;
-//   }
-//   split(header, &first, &second);
-//   //mergeSort(first);
-//   //mergeSort(second);
-//   //header = combine(&header, first, second);
+// void UtPod::swap(SongNode *first, SongNode *second){
+//   Song temp = first->s;
+//   first->s = second->s;
+//   second->s = temp;
 // }
-//
-// void UtPod::split(SongNode *header, SongNode **first, SongNode **second){
-//   SongNode *fast = header->next;
-//   SongNode *slow = header;
-//
-//   while(fast->next != NULL){
-//     fast = fast->next;
-//     if(fast->next != NULL){
-//       fast = fast->next;
-//       slow = slow->next;
-//     }
-//   }
-//   *first = header;
-//   *second = slow;
-// }
-//
-// SondNode* UtPod::combine(SongNode *header, SongNode *first, SongNode *second){
-//   if(first == NULL){
-//     return second;
-//   }
-//   if(second == NULL){
-//     return first;
-//   }
-//    if(first->s <= second->s){
-//
-//    }
-//    else if(second->s <= first->s){
-//
-//    }
-//
-//}
-
 void UtPod::clearMemory(){
   if(songs == NULL){
     return;

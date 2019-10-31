@@ -82,3 +82,9 @@ ostream& operator << (ostream& out, const Song &s){
    out << s.getTitle() << " by " << s.getArtist() << " - size of " << s.getSize();
    return out;
 }
+
+void Song::swap(Song &second){
+  Song temp = *this;
+  *this = second;
+  second = temp;
+}

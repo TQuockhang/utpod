@@ -110,8 +110,6 @@ int main(int argc, char *argv[])
       result = t.addSong(s1);
       cout << "result = " << result << endl;
 
-      t.showSongList();
-
       result = t.addSong(s2);
       cout << "result = " << result << endl;
 
@@ -125,13 +123,11 @@ int main(int argc, char *argv[])
       cout << "result = " << result << endl;
       cout << "memory = " << t.getRemainingMemory() << endl;
 
+      t.showSongList();
+
       cout <<"after clear" << endl;
-      // t.clearMemory();
-      // t.showSongList();
-
-      // t.clearMemory();
-      // t.showSongList();
-
+      t.clearMemory();
+      t.showSongList();
       cout << "memory = " << t.getRemainingMemory() << endl;
 
     cout << "===================================" << endl;

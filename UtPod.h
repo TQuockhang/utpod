@@ -23,12 +23,8 @@ class UtPod
       SongNode *songs;  //the head pointer
 
       int memSize;
-      void swap(SongNode *first, SongNode *second);
+      //void swap(SongNode *first, SongNode *second);
       SongNode* randomNode(int size);
-
-      // void mergeSort(SongNode *header);
-      // void split(SongNode* header, SongNode **first, SongNode **second);
-      // void combine(SongNode *first, SongNode *second);
 
    public:
       //Default constructor
@@ -99,9 +95,11 @@ class UtPod
        *  sorts the songs in ascending order
           o will do nothing if there are less than two songs in the current list
 
-         input parms -
+          // bubble sort
+          //referenced https://www.geeksforgeeks.org/c-program-bubble-sort-linked-list/
+         input parms - n/a
 
-         output parms -
+         output parms - n/a
       */
 
       void sortSongList();
